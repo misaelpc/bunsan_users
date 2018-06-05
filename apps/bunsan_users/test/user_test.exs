@@ -13,6 +13,7 @@ defmodule BunsanUsers.UserTest do
     user = %BunsanUsers.User{}
     changeset = BunsanUsers.User.signup_changeset(user, %{"name" => "Misael", "age" => 33, "email" => "misa@misa.com"})
     assert changeset.valid? == true
+    {:ok, _} = BunsanUsers.User.save(changeset)
   end
 
   test "create user unsuccesfully" do
